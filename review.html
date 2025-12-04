@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Processing Preview</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+        background: #f8f8f8;
+    }
+    .container {
+        background: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        display: inline-block;
+    }
+    .loader {
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #3498db;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin: 20px auto;
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg);}
+        100% { transform: rotate(360deg);}
+    }
+    .message {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>Processing Your Payment...</h2>
+        <div class="loader"></div>
+        <div class="message">Please wait while we confirm your order.</div>
+    </div>
+
+    <script>
+        let countdown = 5;
+        const message = document.querySelector('.message');
+
+        const interval = setInterval(() => {
+            message.textContent = `Redirecting to homepage in ${countdown} seconds...`;
+            countdown--;
+            if (countdown < 0) {
+                clearInterval(interval);
+                message.textContent = "Redirecting now...";
+                // In real use, replace alert with: window.location.href = "index.html";
+                alert("This would redirect to index.html now!");
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
