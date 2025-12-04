@@ -3,21 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payment Processing Preview</title>
+<title>Pizza Store Payment</title>
 <style>
+    /* Reset some default styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
         font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 50px;
-        background: #f8f8f8;
+        background: #f4f4f4;
+        padding-top: 60px; /* for fixed header */
+        padding-bottom: 60px; /* for fixed footer */
     }
+
+    /* Header */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: #3498db;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 1000;
+    }
+
+    /* Footer */
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: #333;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+        z-index: 1000;
+    }
+
+    /* Main container */
     .container {
+        max-width: 400px;
+        margin: 100px auto; /* adjust for header */
         background: #fff;
-        padding: 40px;
+        padding: 30px;
         border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        display: inline-block;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        text-align: center;
     }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
     .loader {
         border: 8px solid #f3f3f3;
         border-top: 8px solid #3498db;
@@ -27,37 +75,46 @@
         margin: 20px auto;
         animation: spin 1s linear infinite;
     }
+
     @keyframes spin {
         0% { transform: rotate(0deg);}
         100% { transform: rotate(360deg);}
     }
+
     .message {
         font-size: 18px;
         margin-top: 20px;
+        color: #555;
     }
 </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Processing Your Payment...</h2>
-        <div class="loader"></div>
-        <div class="message">Please wait while we confirm your order.</div>
-    </div>
 
-    <script>
-        let countdown = 5;
-        const message = document.querySelector('.message');
+<header>Pizza Store</header>
 
-        const interval = setInterval(() => {
-            message.textContent = `Redirecting to homepage in ${countdown} seconds...`;
-            countdown--;
-            if (countdown < 0) {
-                clearInterval(interval);
-                message.textContent = "Redirecting now...";
-                // In real use, replace alert with: window.location.href = "index.html";
-                alert("This would redirect to index.html now!");
-            }
-        }, 1000);
-    </script>
+<div class="container">
+    <h2>Processing Your Payment...</h2>
+    <div class="loader"></div>
+    <div class="message">Please wait while we confirm your order.</div>
+</div>
+
+<footer>&copy; 2025 Pizza Store. All Rights Reserved.</footer>
+
+<script>
+    let countdown = 5;
+    const message = document.querySelector('.message');
+
+    const interval = setInterval(() => {
+        message.textContent = `Redirecting to homepage in ${countdown} seconds...`;
+        countdown--;
+        if (countdown < 0) {
+            clearInterval(interval);
+            message.textContent = "Redirecting now...";
+            // In real use, redirect to index.html
+            alert("This would redirect to index.html now!");
+        }
+    }, 1000);
+</script>
+
 </body>
 </html>
